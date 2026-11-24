@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://p360partners.com/sitemap.xml

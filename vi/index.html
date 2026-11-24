@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="alternate" hreflang="en" href="https://p360partners.com/">
+<link rel="alternate" hreflang="vi" href="https://p360partners.com/vi/">
+<link rel="alternate" hreflang="es" href="https://p360partners.com/es/">
+<title>P360 Partners</title>
+<meta name="description" content="P360 Partners giúp các gia đình lập kế hoạch, mua nhà, bảo vệ những điều quan trọng và xây dựng tài sản lâu dài. Phục vụ bằng tiếng Việt và tiếng Anh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, trustworthy, family-first; a planner sitting at your kitchen table.
+   IDEA: the 360 orbit from the P360 mark: four life decisions circling one family.
+   PICTURE: Phung's portrait inside a glowing gold ring, Plan/Purchase/Protect/Prosper orbiting it.
+   COLOUR and TYPE: brand board: midnight navy, gold, soft gold, cream cards; Be Vietnam Pro + Lora.
+   LAYOUT: navy hero band, cream content bands, navy recruiting band, cream contact, navy footer. */
+:root{color-scheme:light dark;
+--navy:#061535;--royal:#0E2556;--gold:#E9B54F;--soft:#EFCD8F;--shine:#F5E5A9;--cream:#FBF3E6;
+--bg:light-dark(#FBF3E6,#071029);--card:light-dark(#FFFFFF,#0E1B3D);--ink:light-dark(#14213D,#EEF1F8);
+--muted:light-dark(#4A5672,#B7C0D6);--line:light-dark(#E8DCC6,#22325C);--goldink:light-dark(#8A5F12,#EFCD8F)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orbit-spin{animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 "Be Vietnam Pro",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Lora",Georgia,serif;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,4.6vw,54px);font-weight:700}
+h2{font-size:clamp(28px,3.4vw,42px);font-weight:700}
+h3{font-size:21px;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(48px,6vw,96px) max(5vw,18px)}
+.navy{background:radial-gradient(1200px 600px at 75% 30%,#13306b 0%,var(--royal) 30%,var(--navy) 75%);color:#fff}
+.navy .lead{color:#C9D2E8}
+.lead{font-size:18px;color:var(--muted);max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--gold);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--shine);outline-offset:3px}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{color:#fff;background:transparent}
+.light .btn.ghost{color:var(--ink)}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(6,21,53,.94);backdrop-filter:blur(8px);color:#fff}
+.nav{display:flex;align-items:center;gap:20px;padding:10px max(5vw,18px);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.brand b{font-weight:800;letter-spacing:.04em;font-size:15px}
+.brand small{display:block;color:var(--soft);font-size:12px;font-weight:500}
+.nav nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav nav a{text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:500;font-size:15px;color:#DCE3F2}
+.nav nav a:hover{color:var(--gold)}
+.nav{gap:12px}.nav nav{gap:0}.nav nav a{padding:10px 7px;font-size:14.5px}
+@media(max-width:1599px){.nav nav{display:none}}
+@media(max-width:520px){.nav{gap:8px}.nav>.btn{padding:10px 14px;font-size:14px;min-height:44px}.brand small{display:none}}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.hero h1 span{color:var(--gold)}
+.tag{font-family:"Lora",serif;font-style:italic;font-size:22px;color:var(--soft);margin:18px 0 10px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.langs{margin-top:18px;font-size:14px;color:#AEB9D3}
+.fig{position:relative;aspect-ratio:1/1;width:100%;max-width:520px;justify-self:center}
+.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait{position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;border:5px solid var(--gold);box-shadow:0 0 0 10px rgba(233,181,79,.12),0 0 60px rgba(233,181,79,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.node{position:absolute;transform:translate(-50%,-50%);background:var(--navy);border:2px solid var(--gold);color:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.orbit-spin{transform-origin:50% 50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.fig{max-width:420px}}
+@media(max-width:420px){.node{font-size:13px;padding:6px 11px}}
+/* sections */
+.head{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:10px;align-content:start}
+.card svg{width:44px;height:44px}
+.card p{color:var(--muted)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}}
+.who li{margin-bottom:12px}
+.who{padding-left:20px;margin:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:800;font-family:"Lora",serif;font-size:18px}
+.steps.academy{gap:10px}
+.steps.academy li{padding:12px 16px}
+.perks-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.perks-list li{padding-left:22px;position:relative;color:var(--muted)}
+.perks-list li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.perks-list b{color:var(--ink)}
+.steps b{display:block}
+.steps span{color:var(--muted)}
+.motto{margin-top:28px;font-family:"Lora",serif;font-size:24px;font-weight:700}
+.motto i{color:var(--goldink);font-weight:500}
+/* founder */
+.founder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:start}
+.fphoto{position:sticky;top:96px}
+.role{font-weight:600;color:var(--goldink)}
+details{border-top:1px solid var(--line);padding-top:12px}
+details p{margin-top:10px}
+summary{cursor:pointer;font-family:"Lora",serif;font-weight:700;font-size:20px;color:var(--ink);min-height:44px;display:flex;align-items:center;list-style-position:outside}
+.faq{display:grid;gap:14px}
+.faq details p{color:var(--muted)}
+summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.founder img{width:100%;border-radius:24px;border:4px solid var(--gold);display:block;max-width:420px}
+.founder .bio{display:grid;gap:14px}
+.founder .bio p{color:var(--muted)}
+.creds{display:flex;flex-wrap:wrap;gap:8px}
+.creds span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+blockquote{margin:6px 0 0;font-family:"Lora",serif;font-style:italic;font-size:19px;color:var(--ink);border-left:3px solid var(--gold);padding-left:16px}
+@media(max-width:760px){.founder{grid-template-columns:minmax(0,1fr)}.founder img{max-width:320px}.fphoto{position:static}}
+/* join */
+.joinbox{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
+.joinbox .card{background:rgba(255,255,255,.06);border-color:rgba(233,181,79,.35);color:#fff}
+.joinbox ul{margin:0;padding-left:20px;color:#DCE3F2}
+.joinbox li{margin-bottom:8px}
+.session{margin-top:22px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border:2px dashed var(--gold);border-radius:20px;padding:20px 24px}
+.session b{font-size:19px}
+.broker-line{font-size:17px;color:var(--muted);margin:0}
+.broker-line b{font-size:22px;color:var(--ink)}
+.broker-line a{color:inherit;text-decoration:none}
+.fine{font-size:13px;color:#AEB9D3;margin-top:16px}
+@media(max-width:700px){.joinbox{grid-template-columns:minmax(0,1fr)}}
+/* real estate */
+.re{background:light-dark(#F3E7D2,#0A1633)}
+.fs{background:light-dark(#FFFDF8,#0B1838)}
+.fs .card{background:light-dark(#FBF3E6,#0E1B3D)}
+.exp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.exp div{border-top:3px solid var(--gold);padding-top:12px;display:grid;gap:2px}
+.exp b{font-family:"Lora",serif;font-size:24px}
+.exp span{color:var(--muted);font-size:15px}
+@media(max-width:700px){.exp{grid-template-columns:minmax(0,1fr)}}
+.perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:4px 0 22px}
+.perks div{border-top:3px solid var(--gold);padding-top:12px;display:grid;gap:4px}
+.perks b{font-family:"Lora",serif;font-size:21px;color:var(--gold)}
+.perks span{color:#DCE3F2}
+@media(max-width:700px){.perks{grid-template-columns:minmax(0,1fr)}}
+/* vietnamese */
+.vi .card{background:var(--card)}
+/* contact */
+.contact a>span{min-width:0}
+.contact .lines b{white-space:normal!important}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.lines{display:grid;gap:12px}
+.lines a,.lines div{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-decoration:none;min-height:56px}
+.lines small{display:block;color:var(--muted);font-size:13px}
+.lines b{font-size:18px;white-space:nowrap}
+@media(max-width:760px){.contact{grid-template-columns:minmax(0,1fr)}}
+/* footer */
+footer{background:var(--navy);color:#C9D2E8;padding:36px max(5vw,18px);font-size:13.5px}
+footer .wrap{display:grid;gap:12px}
+footer b{color:var(--soft)}
+
+.mnav{display:none;position:relative;border-top:0;padding-top:0}
+.mnav summary{list-style:none;cursor:pointer;width:48px;height:48px;border-radius:12px;border:1.5px solid rgba(233,181,79,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav summary span{display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+.mnav nav{position:absolute;right:0;top:56px;background:#061535;border:1px solid rgba(233,181,79,.4);border-radius:16px;padding:8px;display:grid;min-width:240px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.mnav nav a{color:#fff;text-decoration:none;padding:12px 14px;border-radius:10px;font-weight:600;font-size:16px}
+.mnav nav a:hover{background:rgba(233,181,79,.12);color:var(--gold)}
+@media(max-width:1599px){.mnav{display:block}}
+.eyebrow{margin:0;font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.divider-light{padding-block:28px 0}
+.divider-light .eyebrow{color:var(--goldink);border-top:2px solid var(--gold);padding-top:14px}
+.divider .wrap{display:grid;gap:14px}
+.growlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+details.weeks>summary{cursor:pointer;font-weight:700;padding:12px 0;color:var(--ink);list-style:none}
+details.weeks>summary::-webkit-details-marker{display:none}
+details.weeks>summary::before{content:'+ ';color:var(--goldink)}
+details.weeks[open]>summary::before{content:'− '}
+.mbar{display:none}
+.swipe{display:none;margin:4px 0 0;font-size:14px;font-weight:600;color:var(--goldink);text-align:right}
+@media(max-width:760px){
+  .mbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(6,21,53,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(233,181,79,.35)}
+  .mbar .btn{flex:1;min-height:48px}
+  .mbar .btn.ghost{flex:0 0 96px}
+  body{padding-bottom:76px}
+  .nav>.btn.gold{display:none}
+  #services .grid4,#real-estate .grid4,#financial-services .grid4,#partners .grid4{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:100%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+  #services .grid4>*,#real-estate .grid4>*,#financial-services .grid4>*,#partners .grid4>*{scroll-snap-align:start}
+  .swipe{display:block}
+  #partners .exp,#financial-services .exp{display:none}
+  .founder img{max-width:220px}
+  .band{padding-block:56px}
+}
+
+.lang{display:flex;gap:2px;border:1.5px solid rgba(233,181,79,.5);border-radius:999px;padding:3px}
+.lang a{color:#DCE3F2;text-decoration:none;font-size:13px;font-weight:700;padding:6px 9px;border-radius:999px;min-width:30px;text-align:center}
+.lang a[aria-current]{background:var(--gold);color:var(--navy)}
+@media(max-width:520px){.lang a{padding:5px 6px;font-size:12px;min-width:26px}.nav{gap:6px!important}.brand{gap:7px}.brand svg{width:34px;height:34px}.brand b{font-size:13px;letter-spacing:.02em}.mnav summary{width:44px;height:44px}}
+@media(max-width:370px){.brand b{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="Trang chủ P360 Partners">
+      <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true"><path d="M78 26 A38 38 0 1 0 88 50" fill="none" stroke="#E9B54F" stroke-width="8" stroke-linecap="round"/><path d="M70 14 L90 22 L80 40 Z" fill="#E9B54F"/><text x="50" y="66" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-weight="800" font-size="46" fill="#fff">P</text></svg>
+      <span><b>P360 PARTNERS</b><small>Plan. Purchase. Protect. Prosper.</small></span>
+    </a>
+    <nav aria-label="Chính"><a href="#services">Dịch vụ</a><a href="#real-estate">Bất động sản</a><a href="#financial-services">Tài chính</a><a href="#founder">Người sáng lập</a><a href="#faq">Hỏi đáp</a><a href="#academy">Học viện</a><a href="#join">Gia nhập</a><a href="#partners">Đối tác</a><a href="/blog/">Blog</a><a href="#contact">Liên hệ</a></nav>
+    <a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Đặt lịch trò chuyện miễn phí</a>
+    <div class="lang" aria-label="Language"><a href="/" lang="en" hreflang="en">EN</a><a href="/vi/" lang="vi" hreflang="vi" aria-current="page">VI</a><a href="/es/" lang="es" hreflang="es">ES</a></div>
+    <details class="mnav"><summary aria-label="Mở menu"><span></span><span></span><span></span></summary><nav aria-label="Di động"><a href="#services">Chúng tôi làm gì</a><a href="#real-estate">Bất động sản</a><a href="#financial-services">Dịch vụ tài chính</a><a href="#founder">Gặp Phung</a><a href="#faq">Hỏi đáp</a><a href="#academy">Học Viện Build First</a><a href="#join">Gia nhập đội ngũ</a><a href="#partners">Đối tác</a><a href="/blog/">Blog</a><a href="#contact">Liên hệ</a></nav></details>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="band navy">
+  <div class="wrap hero">
+    <div>
+      <h1>Nhà cửa. Sự bảo vệ. Tương lai. <span>Một đội ngũ.</span></h1>
+      <p class="tag">Plan. Purchase. Protect. Prosper.</p>
+      <p class="lead">Chúng tôi giúp các gia đình và chủ doanh nghiệp nhỏ, đặc biệt là gia đình di dân và thế hệ thứ nhất, đưa ra quyết định đúng đắn về nhà cửa và tài chính.</p>
+      <div class="ctas"><a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Đặt lịch trò chuyện miễn phí</a><a class="btn ghost" href="#join">Gia nhập đội ngũ</a></div>
+      <p class="langs">English · Tiếng Việt · Español</p>
+    </div>
+    <div class="fig" role="img" aria-label="Phung Nguyen ở trung tâm bốn dịch vụ: Plan, Purchase, Protect và Prosper">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <defs><radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="40%" stop-color="#E9B54F" stop-opacity=".18"/><stop offset="100%" stop-color="#E9B54F" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="200" cy="200" r="198" fill="url(#glow)"/>
+        <g class="orbit-spin"><circle cx="200" cy="200" r="160" fill="none" stroke="#E9B54F" stroke-opacity=".55" stroke-width="2" stroke-dasharray="3 9"/>
+        <circle cx="360" cy="200" r="5" fill="#F5E5A9"/><circle cx="40" cy="200" r="4" fill="#E9B54F"/></g>
+        <circle cx="200" cy="200" r="132" fill="none" stroke="#E9B54F" stroke-width="1.5" stroke-opacity=".8"/>
+      </svg>
+      <div class="portrait"><img src="../assets/phung.jpg" alt="Phung Nguyen, MBA, FSCP, người sáng lập P360 Partners"></div>
+      <span class="node" style="left:50%;top:9%">Plan</span>
+      <span class="node" style="left:91%;top:50%">Purchase</span>
+      <span class="node" style="left:50%;top:91%">Protect</span>
+      <span class="node" style="left:9%;top:50%">Prosper</span>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap two">
+    <div class="head" style="margin:0">
+      <h2>Một kế hoạch cho nhà cửa và tài chính của anh chị</h2>
+      <p class="lead">P360 Partners (Prosperity 360 Partners) kết hợp bất động sản, bảo hiểm và hoạch định tài chính trong một đội ngũ, để các gia đình không phải tự ghép nối tương lai từ nhiều chuyên viên riêng lẻ không hề trao đổi với nhau.</p>
+    </div>
+    <div style="display:grid;gap:14px">
+      <p class="lead">Với hầu hết các gia đình, mua nhà là quyết định tài chính lớn nhất trong đời. Thế nhưng việc mua nhà thường tách rời khỏi phần còn lại của kế hoạch: bảo vệ gia đình, tiết kiệm cho hưu trí và xây dựng tài sản cho thế hệ sau. Chúng tôi tin những quyết định này phải đi cùng nhau, nên chúng tôi nhìn toàn cảnh, 360 độ, trước khi đưa ra bất kỳ đề xuất nào.</p>
+      <p class="motto">Build First. Spend Second. (Xây trước, tiêu sau.) <i>Xây nền móng vững chắc trước, rồi để cuộc sống phát triển từ đó.</i></p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2>Chúng tôi làm gì</h2></div>
+    <div class="grid4">
+      <article class="card"><svg viewBox="0 0 48 48" fill="none" stroke="#C8922B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="7" width="30" height="36" rx="4"/><path d="M16 17h16M16 25h16M16 33h9"/></svg><h3>Plan</h3><p>Chúng tôi bắt đầu bằng một cuộc trò chuyện về mục tiêu, gia đình và tài chính của anh chị, rồi xây dựng một kế hoạch rõ ràng cho chặng đường phía trước.</p></article>
+      <article class="card"><svg viewBox="0 0 48 48" fill="none" stroke="#C8922B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 23 24 8l18 15"/><path d="M11 20v20h26V20"/><path d="M20 40V29h8v11"/></svg><h3>Purchase</h3><p>Mua, bán hoặc đầu tư bất động sản cùng một môi giới có giấy phép, làm việc trong ngành từ năm 2003 và hiểu ngôi nhà phù hợp thế nào với toàn bộ bức tranh tài chính của anh chị.</p></article>
+      <article class="card"><svg viewBox="0 0 48 48" fill="none" stroke="#C8922B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 5 8 11v12c0 10 7 17 16 20 9-3 16-10 16-20V11z"/><path d="m17 24 5 5 9-10"/></svg><h3>Protect</h3><p>Bảo hiểm nhân thọ và quyền lợi khi còn sống giúp bảo vệ gia đình, thu nhập và ngôi nhà của anh chị khi điều bất ngờ xảy ra.</p></article>
+      <article class="card"><svg viewBox="0 0 48 48" fill="none" stroke="#C8922B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 40h36"/><path d="M10 34l9-10 7 6 12-14"/><path d="M31 16h7v7"/></svg><h3>Prosper</h3><p>Hoạch định hưu trí và thu nhập để giúp bảo vệ những gì anh chị đã xây dựng và truyền lại cho thế hệ sau.</p></article>
+    </div>
+    <p class="swipe">Vuốt để xem thêm →</p>
+  </div>
+</section>
+
+<section class="band re" id="real-estate">
+  <div class="wrap">
+    <div class="head">
+      <h2>Bất động sản, một phần trong kế hoạch lớn hơn</h2>
+      <p class="broker-line">Dịch vụ bất động sản được cung cấp qua <a href="https://flarealtyinvestments.com/" target="_blank" rel="noopener"><b>Florida Realty Investments IV</b></a></p>
+      <p class="lead">Ngôi nhà là quyết định tài chính lớn nhất của hầu hết các gia đình. Chúng tôi giúp anh chị mua, bán và đầu tư với cái nhìn toàn diện về tài chính: bảo vệ, vay vốn và hưu trí.</p>
+    </div>
+    <div class="grid4">
+      <article class="card"><h3>Mua nhà</h3><p>Từ căn nhà đầu tiên đến ngôi nhà mơ ước, chúng tôi đồng hành từ lúc tìm nhà đến khi hoàn tất giao dịch, và bảo đảm khoản trả góp phù hợp với kế hoạch của anh chị.</p></article>
+      <article class="card"><h3>Bán nhà</h3><p>Định giá, chuẩn bị và thương lượng, với cái nhìn rõ ràng về ý nghĩa của việc bán nhà cho bước tiếp theo.</p></article>
+      <article class="card"><h3>Bất động sản đầu tư</h3><p>Nhà cho thuê, đất và đất nông nghiệp: chúng tôi xem xét dòng tiền, chi phí duy trì và rủi ro trước khi anh chị mua.</p></article>
+      <article class="card"><h3>Chuyển đến Florida</h3><p>Vì chính chúng tôi đã chuyển đến đây, chúng tôi chia sẻ thật lòng những điều hay và khó khi sống ở Florida, từ khu dân cư đến chi phí bảo hiểm.</p></article>
+    </div>
+    <p class="swipe">Vuốt để xem thêm →</p>
+    <div class="exp">
+      <div><b>Từ năm 2003</b><span>trong ngành bất động sản</span></div>
+      <div><b>Có giấy phép tại Florida</b><span>Môi giới bất động sản, Giấy phép #BK3530003 · Broker Associate, Florida Realty Investments IV</span></div>
+      <div><b>Từ nhà ở đến đất nông nghiệp</b><span>nhà ở, thương mại và bất động sản đầu tư</span></div>
+    </div>
+    <div class="session" style="border-color:var(--gold)">
+      <div><b>Phung Nguyen, Broker Associate</b><br><a href="https://flarealtyinvestments.com/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:700;font-size:19px">Florida Realty Investments IV</a><br><span style="color:var(--muted)">Giấy phép FL #BK3530003 · Gọi hoặc nhắn tin 206-636-5354</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Trò chuyện về ngôi nhà của anh chị</a>
+        <a class="btn" style="color:var(--ink);background:transparent" href="https://flarealtyinvestments.com/" target="_blank" rel="noopener">Florida Realty Investments</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band fs" id="financial-services">
+  <div class="wrap">
+    <div class="head">
+      <h2>Dịch vụ tài chính bảo vệ những gì anh chị đang xây dựng</h2>
+      <p class="broker-line">Dịch vụ bảo hiểm và tài chính được cung cấp qua <a href="https://www.vantagefinancialalliance.com/" target="_blank" rel="noopener"><b>Vantage Financial Alliance</b></a></p>
+      <p class="lead">Bảo vệ trước, rồi đến kế hoạch. Chúng tôi giúp các gia đình và chủ doanh nghiệp bảo vệ những người thân yêu, ngôi nhà họ đã vất vả có được và doanh nghiệp họ đã gây dựng, đồng thời lên kế hoạch cho một tuổi hưu vững vàng.</p>
+    </div>
+    <div class="grid4">
+      <article class="card"><h3>Bảo hiểm nhân thọ và quyền lợi khi còn sống</h3><p>Bảo hiểm giúp bảo vệ thu nhập và ngôi nhà của gia đình, với các lựa chọn hợp đồng có thể cho phép sử dụng quyền lợi khi còn sống nếu mắc bệnh hiểm nghèo.</p></article>
+      <article class="card"><h3>Hoạch định hưu trí và thu nhập</h3><p>Lên kế hoạch cho nguồn thu nhập anh chị cần sau này, bao gồm các lựa chọn niên kim (annuity), để biết gia đình có thể trông cậy vào điều gì.</p></article>
+      <article class="card"><h3>Bảo vệ ngôi nhà</h3><p>Bảo hiểm trả nợ nhà và các hình thức bảo vệ giúp gia đình giữ được ngôi nhà nếu có chuyện xảy ra với anh chị.</p></article>
+      <article class="card"><h3>Chủ doanh nghiệp</h3><p>Bảo hiểm nhân sự chủ chốt và kế hoạch mua bán cổ phần (buy-sell) để bảo vệ doanh nghiệp anh chị đã gây dựng và những người phụ thuộc vào nó.</p></article>
+    </div>
+    <p class="swipe">Vuốt để xem thêm →</p>
+    <div class="exp">
+      <div><b>6 tiểu bang</b><span>California, Florida, North Carolina, Tennessee, Texas và Washington, và sẽ có thêm</span></div>
+      <div><b>FSCP&reg;</b><span>Chuyên viên Dịch vụ Tài chính được chứng nhận</span></div>
+      <div><b>English &middot; Tiếng Việt</b><span>trò chuyện về kế hoạch bằng ngôn ngữ anh chị thấy thoải mái nhất</span></div>
+    </div>
+    <div class="session" style="border-color:var(--gold)">
+      <div><b>Phung Nguyen, Senior Marketing Director</b><br><a href="https://www.vantagefinancialalliance.com/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:700;font-size:19px">Vantage Financial Alliance</a><br><span style="color:var(--muted)">NPN 21718139 &middot; Gọi hoặc nhắn tin <span style="white-space:nowrap">206-636-5354</span></span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Đặt lịch trò chuyện miễn phí</a>
+        <a class="btn" style="color:var(--ink);background:transparent" href="https://umustsee.net/OQF5RG" target="_blank" rel="noopener">Tìm hiểu về Vantage</a>
+        <a class="btn" style="color:var(--ink);background:transparent" href="https://umustsee.net/JYN2XD" target="_blank" rel="noopener">Giải pháp của Vantage</a>
+        <a class="btn" style="color:var(--ink);background:transparent" href="https://www.vantagefinancialalliance.com/" target="_blank" rel="noopener">Website Vantage</a>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">Sản phẩm, tính năng và quyền lợi khác nhau tùy tiểu bang và công ty bảo hiểm. Quyền lợi khi còn sống tùy thuộc vào hợp đồng và điều kiện đủ tiêu chuẩn. Bảo hiểm phải qua thẩm định. Dịch vụ bảo hiểm và tài chính không được cung cấp qua Florida Realty Investments IV.</p>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="wrap two">
+    <div>
+      <div class="head" style="margin-bottom:20px"><h2>Chúng tôi phục vụ ai</h2></div>
+      <ul class="who lead">
+        <li><b style="color:var(--ink)">Gia đình di dân và thế hệ thứ nhất</b> đang xây dựng ngôi nhà đầu tiên và kế hoạch tài chính thực sự đầu tiên</li>
+        <li><b style="color:var(--ink)">Chủ doanh nghiệp nhỏ</b>, bao gồm chủ tiệm nail, nhà hàng và cửa hàng, cần bảo vệ cả gia đình lẫn doanh nghiệp</li>
+        <li><b style="color:var(--ink)">Gia đình ở độ tuổi 40 đến 60</b> đang lên kế hoạch hưu trí, chuyển về nhà nhỏ hơn hoặc mua bất động sản đầu tư</li>
+      </ul>
+      <p class="lead" style="margin-top:8px">Chúng tôi phục vụ các gia đình bằng tiếng Anh và tiếng Việt. Dịch vụ bất động sản có tại Florida; dịch vụ bảo hiểm và tài chính có tại California, Florida, North Carolina, Tennessee, Texas và Washington, và sẽ có thêm các tiểu bang khác.</p>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:20px"><h2>Cách chúng tôi làm việc</h2></div>
+      <ol class="steps">
+        <li><div><b>Một cuộc trò chuyện miễn phí</b><span>Chúng tôi lắng nghe trước: mục tiêu, gia đình và những điều anh chị trăn trở.</span></div></li>
+        <li><div><b>Một kế hoạch rõ ràng</b><span>Chúng tôi xem xét ngôi nhà, sự bảo vệ và tương lai của anh chị cùng lúc, và giải thích các lựa chọn bằng ngôn ngữ dễ hiểu.</span></div></li>
+        <li><div><b>Hành động, từng bước một</b><span>Mua nhà, bảo vệ gia đình hay lên kế hoạch hưu trí, từng bước một.</span></div></li>
+        <li><div><b>Xem lại hằng năm</b><span>Cuộc sống thay đổi. Mỗi năm chúng ta gặp nhau một lần để bảo đảm kế hoạch vẫn phù hợp.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="founder" style="padding-top:0">
+  <div class="wrap founder">
+    <img src="../assets/phung-portrait.jpg" alt="Chân dung Phung Nguyen" class="fphoto">
+    <div class="bio">
+      <h2>Gặp Phung Nguyen, MBA, FSCP<sup>®</sup></h2>
+      <p class="role">Môi giới bất động sản · Chuyên viên dịch vụ tài chính · Doanh nhân</p>
+      <div class="creds"><span>MBA, Washington State University</span><span>FSCP®</span><span>Series 6 &amp; 63</span><span>Bất động sản từ năm 2003</span><span>English · Tiếng Việt</span></div>
+      <p>Sinh ra và lớn lên tại Việt Nam, Phung Nguyen đã xây dựng sự nghiệp đa dạng tại Hoa Kỳ và châu Á, với hơn hai mươi năm kinh nghiệm trong tài chính, bất động sản, phát triển kinh doanh, nghiên cứu thị trường và khởi nghiệp.</p>
+      <p>Hành trình của chị được định hình bởi niềm đam mê kinh doanh, sự tò mò về thế giới và niềm tin rằng thành công tài chính không chỉ là tiền bạc. Đó là tạo ra cơ hội, xây dựng sự an toàn lâu dài và có tự do sống theo cách của mình.</p>
+      <details open><summary>Từ chuyên viên phân tích tài chính đến doanh nhân</summary>
+        <p>Sau khi nhận bằng MBA tại Washington State University, Phung bắt đầu sự nghiệp tại Los Angeles với vai trò chuyên viên phân tích hệ thống và tài chính. Trong khi làm việc toàn thời gian, chị lấy giấy phép bất động sản California năm 2003, mở đầu sự nghiệp bất động sản kéo dài đến hôm nay.</p>
+        <p>Năm 2005, chị trở về tiểu bang Washington và thành lập công ty môi giới bất động sản và môi giới vay mua nhà của riêng mình. Với giấy phép Managing Broker và Mortgage Broker, chị muốn mang đến cho khách hàng trải nghiệm trọn vẹn, từ tìm đúng ngôi nhà đến thu xếp khoản vay. Giai đoạn khởi nghiệp này đặt nền móng cho niềm đam mê lâu dài với đầu tư bất động sản và giúp các gia đình xây dựng tài sản qua việc sở hữu nhà đất.</p>
+      </details>
+      <details><summary>Sự nghiệp quốc tế và góc nhìn toàn cầu</summary>
+        <p>Sự nghiệp đưa Phung và chồng đến một hành trình sống ở nước ngoài. Họ bắt đầu tại Hồng Kông, sống ở đó hơn một năm, trước khi chọn Việt Nam làm nơi ở chính. Công việc của chồng chị với Black &amp; Veatch có các dự án trên khắp đất nước, giúp gia đình có cơ hội sống và trải nghiệm nhiều nơi ở miền Bắc, miền Trung và miền Nam Việt Nam.</p>
+        <p>Trong thời gian này, Phung tiếp tục phát triển sự nghiệp trong các tập đoàn. Chị làm Senior Manager tại Nielsen, công ty nghiên cứu thị trường toàn cầu, làm việc với các thương hiệu hàng tiêu dùng nhanh (FMCG) lớn muốn hiểu người tiêu dùng và mở rộng thị phần tại Đông Nam Á. Sau đó chị gia nhập Philip Morris International, phụ trách nghiên cứu thị trường tại Việt Nam, Lào và Campuchia.</p>
+        <p>Những trải nghiệm này giúp chị hiểu sâu sắc về kinh doanh quốc tế, hành vi người tiêu dùng, biến động thị trường và tầm quan trọng của việc thích ứng với các nền văn hóa và môi trường kinh tế khác nhau. Quan trọng hơn, sống và làm việc ở nhiều quốc gia đã định hình cách chị nhìn về cơ hội, rủi ro và những cách khác nhau mà mỗi người định nghĩa thành công.</p>
+      </details>
+      <details><summary>Trở về Hoa Kỳ và đầu tư bất động sản</summary>
+        <p>Cuối năm 2018, Phung và gia đình trở về Hoa Kỳ để gần gũi người thân. Sau đó chị làm chuyên viên tư vấn phát triển kinh doanh cho Boeing trước khi chuyển đến Florida năm 2021. Sau khi chuyển nhà, Phung dành phần lớn thời gian quản lý và mở rộng các khoản đầu tư bất động sản của gia đình trong khi nuôi dạy hai con trai.</p>
+        <p>Qua những lần chuyển hướng sự nghiệp, <b>bất động sản vẫn luôn là một phần không đổi trong cuộc sống của chị kể từ năm 2003.</b> Kinh nghiệm của chị bao gồm bất động sản nhà ở và thương mại, bất động sản đầu tư và đất nông nghiệp. Chị luôn gắn bó với ngành qua môi giới, sở hữu và đầu tư bất động sản, và sau đó lấy giấy phép môi giới bất động sản Florida.</p>
+        <p>Từng làm việc trong ngành bất động sản tại California, Washington và Florida, chị mang đến cả kinh nghiệm chuyên môn lẫn góc nhìn của một nhà đầu tư hiểu rõ cơ hội và trách nhiệm đi kèm với việc sở hữu nhà đất.</p>
+      </details>
+      <details><summary>Mở rộng sang dịch vụ tài chính</summary>
+        <p>Khi hai con trai lớn hơn và tự lập hơn, Phung quyết định quay lại với đam mê nghề nghiệp với một mục đích mới. Năm 2026, chị gia nhập New York Life, nơi chị mở rộng kiến thức về bảo hiểm nhân thọ, hoạch định hưu trí và các chiến lược bảo vệ tài chính. Trong thời gian này, chị lấy giấy phép chứng khoán Series 6 và Series 63 và đạt chứng chỉ Financial Services Certified Professional (FSCP®) từ The American College of Financial Services. Chị cũng đang tiếp tục học để lấy chứng chỉ Chartered Financial Consultant (ChFC®) và CERTIFIED FINANCIAL PLANNER® (CFP®).</p>
+        <p>Dù trân trọng kinh nghiệm, sự đào tạo và các mối quan hệ tại New York Life, Phung nhận ra tầm nhìn dài hạn của mình vượt ra ngoài bảo hiểm và dịch vụ tài chính truyền thống. Cuối năm 2026, chị quyết định theo đuổi mô hình kinh doanh độc lập, cho phép chị kết hợp các lĩnh vực chuyên môn đã tích lũy trong suốt sự nghiệp.</p>
+        <p>Hiện nay, Phung hợp tác với Vantage Financial Alliance và đang xây dựng agency dịch vụ tài chính của riêng mình, với mục tiêu giúp các gia đình tiếp cận nhiều giải pháp tài chính và nguồn lực chuyên môn hơn. Tầm nhìn của chị là kết nối bảo vệ tài chính, hoạch định hưu trí, bất động sản, đầu tư, dịch vụ vay mua nhà và các nguồn lực về thuế thông qua mạng lưới các chuyên gia có giấy phép phù hợp và đối tác chiến lược. Chị cũng mong muốn dìu dắt và phát triển những người có cùng tinh thần khởi nghiệp và muốn xây dựng sự nghiệp ý nghĩa trong ngành dịch vụ tài chính.</p>
+      </details>
+      <details><summary>Gia đình, tự do và ý nghĩa của sự giàu có</summary>
+        <p>Ngoài công việc, Phung là một người vợ, mẹ của hai con trai, một người mê du lịch và thật sự yêu thích khám phá những vùng đất và nền văn hóa mới. Từng sống và làm việc ở nhiều nơi trên thế giới, chị trân trọng những trải nghiệm, mối quan hệ và góc nhìn có được khi bước ra khỏi vùng an toàn.</p>
+      </details>
+      <blockquote>Với Phung, mục tiêu không chỉ là cung cấp từng sản phẩm tài chính riêng lẻ, mà là giúp các gia đình hiểu các quyết định tài chính của mình kết nối với nhau như thế nào.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap two">
+    <div class="head" style="margin:0">
+      <h2>Câu hỏi thường gặp</h2>
+      <p class="lead">Giải đáp nhanh những điều các gia đình hay hỏi nhất. Chưa thấy câu hỏi của anh chị? Gọi hoặc nhắn tin 206-636-5354.</p>
+    </div>
+    <div class="faq">
+      <details><summary>P360 Partners là gì?</summary><p>P360 Partners là tên đội ngũ do Phung Nguyen sử dụng. Chúng tôi giúp các gia đình về bất động sản, bảo vệ và hoạch định tài chính dài hạn, để ngôi nhà, bảo hiểm và kế hoạch hưu trí cùng phối hợp với nhau. Dịch vụ bất động sản được cung cấp qua Florida Realty Investments IV. Dịch vụ bảo hiểm và tài chính được cung cấp qua Vantage Financial Alliance.</p></details>
+      <details><summary>Buổi trò chuyện đầu tiên có thật sự miễn phí không?</summary><p>Có. Buổi trò chuyện đầu tiên miễn phí và không có nghĩa vụ phải mua bất cứ thứ gì. Chúng tôi dùng buổi này để hiểu tình hình hiện tại và điều anh chị muốn làm.</p></details>
+      <details><summary>Có thể trò chuyện bằng tiếng Việt không?</summary><p>Có. Chúng tôi làm việc với các gia đình bằng tiếng Anh và tiếng Việt. Nhiều gia đình thấy dễ nói chuyện tiền bạc hơn bằng ngôn ngữ mình thoải mái nhất.</p></details>
+      <details><summary>Dịch vụ bất động sản và bảo hiểm có thuộc cùng một công ty không?</summary><p>Không. Florida Realty Investments IV và Vantage Financial Alliance là hai công ty có chủ sở hữu và hoạt động riêng biệt, không liên kết với nhau. Phung Nguyen làm việc với mỗi công ty một cách riêng biệt, theo giấy phép riêng.</p></details>
+      <details><summary>Các anh chị phục vụ ở những tiểu bang nào?</summary><p>Dịch vụ bất động sản được cung cấp tại Florida qua Florida Realty Investments IV. Dịch vụ bảo hiểm và tài chính hiện có tại California, Florida, North Carolina, Tennessee, Texas và Washington, và sẽ có thêm các tiểu bang khác. Hãy hỏi chúng tôi về tiểu bang của anh chị.</p></details>
+      <details><summary>Tôi cần mang gì đến buổi trò chuyện đầu tiên?</summary><p>Chỉ cần câu hỏi và mục tiêu của anh chị. Buổi đầu tiên không cần giấy tờ gì. Nếu cần đi xa hơn, chúng tôi sẽ cho biết nên chuẩn bị những gì.</p></details>
+      <details><summary>Các anh chị có tư vấn thuế hay pháp lý không?</summary><p>Không. Khi anh chị cần hỗ trợ về thuế, pháp lý hoặc vay mua nhà, chúng tôi có thể kết nối với các chuyên gia có giấy phép riêng. Việc giới thiệu không phải là sự bảo chứng.</p></details>
+      <details><summary>Có cần kinh nghiệm để gia nhập đội ngũ không?</summary><p>Không cần kinh nghiệm. Cần có giấy phép, và chúng tôi hướng dẫn anh chị trong quá trình thi lấy giấy phép. Nhiều người bắt đầu bán thời gian trong khi vẫn giữ công việc hiện tại. Đây là cơ hội làm việc độc lập (independent contractor), và thu nhập tùy thuộc vào nỗ lực và kết quả của mỗi người; thu nhập không được bảo đảm.</p></details>
+    </div>
+  </div>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "vi", "mainEntity": [{"@type": "Question", "name": "P360 Partners là gì?", "acceptedAnswer": {"@type": "Answer", "text": "P360 Partners là tên đội ngũ do Phung Nguyen sử dụng. Chúng tôi giúp các gia đình về bất động sản, bảo vệ và hoạch định tài chính dài hạn, để ngôi nhà, bảo hiểm và kế hoạch hưu trí cùng phối hợp với nhau. Dịch vụ bất động sản được cung cấp qua Florida Realty Investments IV. Dịch vụ bảo hiểm và tài chính được cung cấp qua Vantage Financial Alliance."}}, {"@type": "Question", "name": "Buổi trò chuyện đầu tiên có thật sự miễn phí không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Buổi trò chuyện đầu tiên miễn phí và không có nghĩa vụ phải mua bất cứ thứ gì. Chúng tôi dùng buổi này để hiểu tình hình hiện tại và điều anh chị muốn làm."}}, {"@type": "Question", "name": "Có thể trò chuyện bằng tiếng Việt không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Chúng tôi làm việc với các gia đình bằng tiếng Anh và tiếng Việt. Nhiều gia đình thấy dễ nói chuyện tiền bạc hơn bằng ngôn ngữ mình thoải mái nhất."}}, {"@type": "Question", "name": "Dịch vụ bất động sản và bảo hiểm có thuộc cùng một công ty không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. Florida Realty Investments IV và Vantage Financial Alliance là hai công ty có chủ sở hữu và hoạt động riêng biệt, không liên kết với nhau. Phung Nguyen làm việc với mỗi công ty một cách riêng biệt, theo giấy phép riêng."}}, {"@type": "Question", "name": "Các anh chị phục vụ ở những tiểu bang nào?", "acceptedAnswer": {"@type": "Answer", "text": "Dịch vụ bất động sản được cung cấp tại Florida qua Florida Realty Investments IV. Dịch vụ bảo hiểm và tài chính hiện có tại California, Florida, North Carolina, Tennessee, Texas và Washington, và sẽ có thêm các tiểu bang khác. Hãy hỏi chúng tôi về tiểu bang của anh chị."}}, {"@type": "Question", "name": "Tôi cần mang gì đến buổi trò chuyện đầu tiên?", "acceptedAnswer": {"@type": "Answer", "text": "Chỉ cần câu hỏi và mục tiêu của anh chị. Buổi đầu tiên không cần giấy tờ gì. Nếu cần đi xa hơn, chúng tôi sẽ cho biết nên chuẩn bị những gì."}}, {"@type": "Question", "name": "Các anh chị có tư vấn thuế hay pháp lý không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. Khi anh chị cần hỗ trợ về thuế, pháp lý hoặc vay mua nhà, chúng tôi có thể kết nối với các chuyên gia có giấy phép riêng. Việc giới thiệu không phải là sự bảo chứng."}}, {"@type": "Question", "name": "Có cần kinh nghiệm để gia nhập đội ngũ không?", "acceptedAnswer": {"@type": "Answer", "text": "Không cần kinh nghiệm. Cần có giấy phép, và chúng tôi hướng dẫn anh chị trong quá trình thi lấy giấy phép. Nhiều người bắt đầu bán thời gian trong khi vẫn giữ công việc hiện tại. Đây là cơ hội làm việc độc lập (independent contractor), và thu nhập tùy thuộc vào nỗ lực và kết quả của mỗi người; thu nhập không được bảo đảm."}}]}</script>
+</section>
+
+<section class="band navy divider" id="grow">
+  <div class="wrap">
+    <p class="eyebrow">Cùng phát triển</p>
+    <h2>Học hỏi, xây dựng sự nghiệp, hoặc hợp tác với chúng tôi</h2>
+    <p class="lead">Lớp học miễn phí cho mọi người, sự nghiệp thứ hai cho những ai thích giúp đỡ các gia đình, và một vòng tròn tin cậy cho luật sư, CPA và enrolled agent.</p>
+    <div class="growlinks"><a class="btn gold" href="#academy">Học Viện Build First</a><a class="btn ghost" href="#join">Gia nhập đội ngũ</a><a class="btn ghost" href="#partners">Đối tác</a></div>
+  </div>
+</section>
+
+<section class="band re" id="academy">
+  <div class="wrap">
+    <div class="head">
+      <h2>Học Viện Build First</h2>
+      <p class="broker-line"><b>Học Viện Build First</b> · Lớp giáo dục tài chính miễn phí hàng tuần</p>
+      <p class="lead">Một lớp học trực tuyến miễn phí mỗi tuần, dạy kỹ năng tài chính thực tế bằng ngôn ngữ dễ hiểu. Hãy mang theo câu hỏi, gia đình hoặc bạn bè. Mỗi buổi học độc lập, nên anh chị có thể tham gia bất kỳ tuần nào.</p>
+    </div>
+    <div class="two">
+      <details class="weeks"><summary>Xem 8 tuần học</summary>
+      <ol class="steps academy">
+        <li><div><b>Tuần 1: Tiền thật sự vận hành thế nào</b><span>Lập ngân sách, dòng tiền và "Build First. Spend Second."</span></div></li>
+        <li><div><b>Tuần 2: Nợ và tín dụng</b><span>Điểm tín dụng hoạt động thế nào; nợ tốt và nợ xấu</span></div></li>
+        <li><div><b>Tuần 3: Quỹ khẩn cấp</b><span>Bao nhiêu là đủ, và nên để ở đâu</span></div></li>
+        <li><div><b>Tuần 4: Bảo vệ gia đình</b><span>Vì sao bảo hiểm nhân thọ quan trọng; có thời hạn và trọn đời; quyền lợi khi còn sống</span></div></li>
+        <li><div><b>Tuần 5: Kiến thức hưu trí</b><span>401(k), IRA và vì sao bắt đầu sớm lại quan trọng</span></div></li>
+        <li><div><b>Tuần 6: Nhà cửa và tài chính</b><span>Mua hay thuê, và ngôi nhà phù hợp thế nào với kế hoạch</span></div></li>
+        <li><div><b>Tuần 7: Thuế và tiết kiệm thông minh</b><span>Các loại tài khoản bị đánh thuế thế nào, giải thích dễ hiểu</span></div></li>
+        <li><div><b>Tuần 8: Xây dựng di sản</b><span>Truyền lại tài sản, và nói chuyện tiền bạc với con cái</span></div></li>
+      </ol>
+      </details>
+      <div class="card" style="gap:14px">
+        <h3>Cách tham gia</h3>
+        <ul class="perks-list">
+          <li><b>Miễn phí</b> · không tốn phí, không ràng buộc</li>
+          <li><b>Trực tuyến</b> · 60 phút trên Google Meet</li>
+          <li><b>Hàng tuần</b> · chu kỳ 8 tuần lặp lại, nên có thể bắt đầu bất cứ lúc nào</li>
+          <li><b>English · Tiếng Việt</b></li>
+          <li><b>Quan tâm đến sự nghiệp?</b> Hãy hỏi chúng tôi về việc gia nhập đội ngũ</li>
+        </ul>
+        <a class="btn gold" href="mailto:info@p360partners.com?subject=Build%20First%20Academy%20registration&body=Name%3A%0APhone%3A%0APreferred%20language%20(English%20%2F%20Ti%E1%BA%BFng%20Vi%E1%BB%87t)%3A%0AHow%20did%20you%20hear%20about%20us%3F%3A%0AAlso%20curious%20about%20a%20career%20in%20financial%20services%3F%20(yes%2Fno)%3A" style="justify-self:start">Đăng ký Học Viện</a>
+        <p style="margin:0;color:var(--muted);font-size:14px">Hoặc gọi/nhắn tin <a href="tel:+12066365354" style="color:var(--ink);font-weight:700">206-636-5354</a>. Chúng tôi sẽ gửi lịch học và đường link lớp học.</p>
+        <p style="margin:0;color:var(--muted);font-size:13px">Nội dung chỉ mang tính giáo dục; không phải lời khuyên tài chính, thuế hay pháp lý. Không bán sản phẩm trong giờ học.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band navy" id="join">
+  <div class="wrap">
+    <div class="head">
+      <h2>Giữ công việc hiện tại. Xây thêm sự nghiệp trong ngành dịch vụ tài chính.</h2>
+      <p class="lead">P360 Partners đang phát triển. Chúng tôi tìm những người thích giúp đỡ người khác và muốn xây dựng doanh nghiệp riêng, với sự đào tạo và hỗ trợ để làm đúng cách.</p>
+      <p class="lead" style="color:var(--soft);font-weight:600">Lộ trình thăng tiến rõ ràng, từ Associate đến các cấp lãnh đạo điều hành, với sự đào tạo ở mỗi bước.</p>
+    </div>
+    <div class="perks">
+      <div><b>Bắt đầu bán thời gian</b><span>Vẫn giữ công việc hiện tại trong khi học hỏi và phát triển theo tốc độ của mình.</span></div>
+      <div><b>Giáo dục tài chính miễn phí</b><span>Hiểu cách tiền bạc, bảo vệ và đầu tư thật sự vận hành.</span></div>
+      <div><b>Giúp mình và giúp người</b><span>Áp dụng những gì học được cho gia đình mình trước, rồi giúp những gia đình như mình.</span></div>
+    </div>
+    <div class="joinbox">
+      <div class="card"><h3 style="color:var(--gold)">Dành cho anh chị nếu</h3><ul><li>Anh chị thích giúp đỡ mọi người</li><li>Anh chị muốn giờ giấc linh hoạt và có thể làm việc từ xa</li><li>Anh chị muốn xây dựng doanh nghiệp riêng</li><li>Anh chị nói được thêm một ngôn ngữ (một lợi thế lớn)</li></ul></div>
+      <div class="card"><h3 style="color:var(--gold)">Anh chị sẽ nhận được</h3><ul><li><b>Hoa hồng lên đến 115% phí bảo hiểm mục tiêu (TP)*</b></li><li>Hướng dẫn thi lấy giấy phép</li><li>Lớp giáo dục tài chính miễn phí hàng tuần</li><li>Kèm cặp và cùng gặp khách hàng</li><li>Không chỉ tiêu, không cần kinh nghiệm</li></ul><p style="margin:10px 0 0;font-size:13px;color:#B7C0D6">*115% phí bảo hiểm mục tiêu (TP) là mức hợp đồng cao nhất; hoa hồng thực tế tùy theo sản phẩm, công ty bảo hiểm và doanh số, không phải mức thông thường hay được bảo đảm.</p></div>
+    </div>
+    <div class="session">
+      <div><b>Quan tâm? Hãy trò chuyện.</b><br><span style="color:#DCE3F2">Gọi hoặc nhắn tin 206-636-5354, hoặc đặt lịch để tìm hiểu thêm về việc gia nhập P360 Partners.</span></div>
+      <a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Đặt lịch trò chuyện</a>
+    </div>
+    <p class="fine">Cơ hội làm việc độc lập; cần có giấy phép. Thu nhập tùy thuộc vào nỗ lực và kết quả của mỗi người; thu nhập không được bảo đảm.</p>
+  </div>
+</section>
+
+<section class="band" id="partners">
+  <div class="wrap">
+    <div class="head">
+      <h2>Hợp tác với chúng tôi: luật sư, CPA và enrolled agent</h2>
+      <p class="lead">Những quyết định lớn của một gia đình hiếm khi gói gọn trong một văn phòng. Mua nhà, bảo vệ thu nhập, khởi nghiệp và lập kế hoạch tài sản đều liên quan đến thuế và pháp lý. Chúng tôi đang xây dựng một vòng tròn chuyên gia tin cậy để các gia đình gặp đúng người, đúng lúc.</p>
+    </div>
+    <div class="grid4">
+      <article class="card"><h3>Luật sư</h3><p>Luật sư về hoạch định tài sản, luật người cao tuổi, thành lập doanh nghiệp và bất động sản muốn có đối tác hoạch định về bảo hiểm, tài chính và bất động sản.</p></article>
+      <article class="card"><h3>CPA và enrolled agent</h3><p>Chuyên gia thuế phục vụ gia đình và chủ doanh nghiệp nhỏ, muốn phối hợp kế hoạch thuế với các quyết định về bảo vệ, hưu trí và bất động sản.</p></article>
+      <article class="card"><h3>Hợp tác như thế nào</h3><p>Giới thiệu khách hàng hai chiều khi khách cần dịch vụ của bên kia, phối hợp lập kế hoạch (khi khách hàng đồng ý), và cùng tổ chức hội thảo cho cộng đồng bằng tiếng Anh và tiếng Việt.</p></article>
+    </div>
+    <p class="swipe">Vuốt để xem thêm →</p>
+    <div class="exp">
+      <div><b>Khách hàng là trên hết</b><span>Mỗi lần giới thiệu đều vì nhu cầu của gia đình, không vì điều gì khác.</span></div>
+      <div><b>Song ngữ</b><span>Nói được ngôn ngữ thứ hai? Phục vụ các gia đình di dân và đa ngôn ngữ bằng chính ngôn ngữ của họ là một lợi thế lớn.</span></div>
+      <div><b>Giữ sự độc lập</b><span>Anh chị giữ văn phòng, khách hàng và chuẩn mực nghề nghiệp của mình.</span></div>
+    </div>
+    <div class="session" style="border-color:var(--gold)">
+      <div><b>Muốn hợp tác?</b><br><span style="color:var(--muted)">Gọi hoặc nhắn tin 206-636-5354, hoặc email info@p360partners.com với tiêu đề "Professional partnership".</span></div>
+      <a class="btn gold" href="mailto:info@p360partners.com?subject=Professional%20partnership">Trò chuyện ngay</a>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">Các chuyên gia đối tác hoạt động độc lập và có giấy phép riêng, không phải nhân viên hay đại diện của P360 Partners, Vantage Financial Alliance hay Florida Realty Investments IV. P360 Partners không tư vấn thuế hay pháp lý. Việc giới thiệu không phải là sự bảo chứng. Không trả hoặc nhận phí giới thiệu ở những nơi luật pháp hoặc quy định nghề nghiệp không cho phép.</p>
+  </div>
+</section>
+
+<section class="band" id="contact" style="padding-top:0">
+  <div class="wrap contact">
+    <div class="head" style="margin:0">
+      <h2>Hãy trò chuyện về bước tiếp theo của anh chị</h2>
+      <p class="lead">Dù anh chị đang mua nhà, bảo vệ gia đình, lên kế hoạch hưu trí hay tìm hiểu một sự nghiệp mới, tất cả bắt đầu bằng một cuộc trò chuyện miễn phí, không áp lực, bằng tiếng Việt hoặc tiếng Anh.</p>
+    </div>
+    <div class="lines">
+      <a href="tel:+12066365354"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8922B" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span><small>Gọi hoặc nhắn tin</small><b>206-636-5354</b></span></a>
+      <a href="mailto:info@p360partners.com"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8922B" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small><b>info@p360partners.com</b></span></a>
+      <a href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8922B" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><small>Đặt lịch trực tuyến</small><b>Chọn thời gian phù hợp với anh chị</b></span></a>
+      <div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8922B" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg><span><small>Theo dõi</small><b>@phungabbynguyen</b></span></div>
+      <p style="font-size:14px;color:var(--muted)">Bất động sản: Phung Nguyen, Broker Associate · Florida Realty Investments IV</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>P360 Partners</b> · Plan. Purchase. Protect. Prosper. · Build First. Spend Second.</p>
+    <p><b>Công bố thông tin</b></p>
+    <p>P360 Partners là tên đội ngũ do Phung Nguyen sử dụng. Dịch vụ bất động sản được cung cấp qua Florida Realty Investments IV, nơi Phung Nguyen là Broker Associate. Dịch vụ bảo hiểm và tài chính được cung cấp qua Vantage Financial Alliance.</p>
+    <p>Florida Realty Investments IV và Vantage Financial Alliance là hai công ty có chủ sở hữu và hoạt động riêng biệt, không liên kết với nhau. Dịch vụ bất động sản không được cung cấp qua Vantage Financial Alliance, và dịch vụ bảo hiểm và tài chính không được cung cấp qua Florida Realty Investments IV.</p>
+    <p><b>Giấy phép bảo hiểm:</b> Phung Nguyen, National Producer Number (NPN) 21718139. California #4498121 · Florida #G272360 · North Carolina #21718139 · Tennessee #3004375138 · Texas #3539273 · Washington #1328806. Đang mở rộng thêm các tiểu bang khác.</p>
+    <p><b>Giấy phép bất động sản:</b> Phung Nguyen là môi giới bất động sản có giấy phép tại Florida (Giấy phép #BK3530003), làm Broker Associate tại Florida Realty Investments IV.</p>
+    <p>Sản phẩm và dịch vụ bảo hiểm chỉ có tại các tiểu bang mà Phung Nguyen có giấy phép; sản phẩm và tính năng khác nhau tùy tiểu bang và công ty bảo hiểm. Dịch vụ vay mua nhà và thuế được nhắc đến trên trang này do các chuyên gia có giấy phép riêng cung cấp, và việc giới thiệu không phải là sự bảo chứng. Nội dung trên trang này chỉ mang tính giáo dục, không phải lời khuyên tài chính, đầu tư, thuế hay pháp lý. Cơ hội nhà ở bình đẳng (Equal Housing Opportunity).</p>
+    <p>© 2026 P360 Partners</p>
+  </div>
+</footer>
+<div class="mbar"><a class="btn gold" href="https://calendar.app.google/U5jrNqet8AjZYznJ9" target="_blank" rel="noopener">Đặt lịch miễn phí</a><a class="btn ghost" href="tel:+12066365354">Gọi</a></div>
+<script>
+document.querySelectorAll('.mnav nav a').forEach(a=>a.addEventListener('click',()=>a.closest('details').removeAttribute('open')));
+(function(){var d=document.querySelector('details.weeks');if(d&&window.matchMedia('(min-width:761px)').matches)d.setAttribute('open','');})();
+</script>
+</body>
+</html>
